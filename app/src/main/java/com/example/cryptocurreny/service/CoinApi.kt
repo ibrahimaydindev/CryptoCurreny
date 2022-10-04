@@ -1,9 +1,11 @@
 package com.example.cryptocurreny.service
 
+import com.example.cryptocurreny.model.CoinList
 import retrofit2.http.GET
 
-class CoinApi {
+abstract class CoinApi {
     @GET("atilsamancioglu/IA32-CryptoComposeData/main/cryptolist.json")
-    suspend fun getCoinList:Unit
+    abstract suspend fun getCoinList(): CoinList
+
 
 }
