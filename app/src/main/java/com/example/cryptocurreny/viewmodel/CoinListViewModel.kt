@@ -47,7 +47,7 @@ class CoinListViewModel @Inject constructor(private val repository: CoinReposito
         }
     }
 
-    fun searchCryptoList(query: String) {
+    fun searchCoinList(query: String) {
         val listToSearch = if (isSearchStarting) {
             coinList.value
         } else {
