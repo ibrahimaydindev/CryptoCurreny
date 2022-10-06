@@ -7,6 +7,7 @@ import com.example.cryptocurreny.model.CoinListItem
 import com.example.cryptocurreny.repository.CoinRepository
 import com.example.cryptocurreny.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,8 +16,14 @@ class CoinListViewModel @Inject constructor(private val repository: CoinReposito
     var coinList = mutableStateOf<List<CoinListItem>>(listOf())
     var isLoading = mutableStateOf(false)
     var isError = mutableStateOf("")
+    private var newCoinList = listOf<CoinListItem>()
+    private var isSearchStarting = true
 
-    fun loadCoins() {
+    init {
+        loadCoins()
+    }
+
+    private fun loadCoins() {
         viewModelScope.launch {
             isLoading.value = true
             when (val result = repository.getCoinList()) {
@@ -34,9 +41,32 @@ class CoinListViewModel @Inject constructor(private val repository: CoinReposito
                     isLoading.value = false
                 }
                 else -> {
-                    isError.value = "An unknown error occured"
+                    isError.value = "Bilinmeyen hata"
                 }
             }
+        }
+    }
+
+    fun searchCryptoList(query: String) {
+        val listToSearch = if (isSearchStarting) {
+            coinList.value
+        } else {
+            newCoinList
+        }
+        viewModelScope.launch(Dispatchers.Default) {
+            if (query.isEmpty()) {
+                coinList.value = newCoinList
+                isSearchStarting = true
+                return@launch
+            }
+            val results = listToSearch.filter {
+                it.currency.contains(query.trim(), ignoreCase = true)
+            }
+            if (isSearchStarting) {
+                newCoinList = coinList.value
+                isSearchStarting = false
+            }
+            coinList.value = results
         }
     }
 }
