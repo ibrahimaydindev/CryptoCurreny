@@ -2,7 +2,6 @@ package com.example.cryptocurreny.service
 
 import com.example.cryptocurreny.model.Coin
 import com.example.cryptocurreny.model.CoinList
-import com.example.cryptocurreny.model.CoinListItem
 import retrofit2.http.GET
 import retrofit2.http.Query
 

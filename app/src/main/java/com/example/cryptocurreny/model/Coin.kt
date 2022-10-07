@@ -1,4 +1,4 @@
 package com.example.cryptocurreny.model
 
-class Coin:ArrayList<CoinListItem>() {
+class Coin:ArrayList<CoinItem>() {
 }

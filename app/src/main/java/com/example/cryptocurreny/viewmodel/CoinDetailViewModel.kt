@@ -11,5 +11,4 @@ class CoinDetailViewModel @Inject constructor(private val repository: CoinReposi
     suspend fun getCoinDetail(id: String): Resource<Coin> {
         return repository.getCoin(id)
     }
-
 }

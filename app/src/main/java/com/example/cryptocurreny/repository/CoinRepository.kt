@@ -2,7 +2,6 @@ package com.example.cryptocurreny.repository
 
 import com.example.cryptocurreny.model.Coin
 import com.example.cryptocurreny.model.CoinList
-import com.example.cryptocurreny.model.CoinListItem
 import com.example.cryptocurreny.service.CoinApi
 import com.example.cryptocurreny.util.Constants.API_KEY
 import com.example.cryptocurreny.util.Constants.CALL_ATTRIBUTES

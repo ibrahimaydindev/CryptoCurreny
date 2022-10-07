@@ -1,6 +1,5 @@
 package com.example.cryptocurreny.model
 
-
 import com.google.gson.annotations.SerializedName
 
 data class CoinListItem(

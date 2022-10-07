@@ -23,7 +23,7 @@ class CoinListViewModel @Inject constructor(private val repository: CoinReposito
         loadCoins()
     }
 
-    private fun loadCoins() {
+     fun loadCoins() {
         viewModelScope.launch {
             isLoading.value = true
             when (val result = repository.getCoinList()) {
