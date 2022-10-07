@@ -11,6 +11,7 @@ import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.example.cryptocurreny.ui.theme.CryptoCurrenyTheme
 import com.example.cryptocurreny.view.CoinDetailScreen
+import com.example.cryptocurreny.view.CoinListScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

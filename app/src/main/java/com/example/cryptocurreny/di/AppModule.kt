@@ -2,7 +2,6 @@ package com.example.cryptocurreny.di
 
 import com.example.cryptocurreny.repository.CoinRepository
 import com.example.cryptocurreny.service.CoinApi
-import com.example.cryptocurreny.util.Constants
 import com.example.cryptocurreny.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
